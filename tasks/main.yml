@@ -1,8 +1,2 @@
 ---
-- name: Copy neovim repository file in place.
-  template:
-    src: neovim.repo.j2
-    dest: /etc/yum.repos.d/dperson-neovim-epel-{{ ansible_distribution_major_version }}.repo
-
-- name: Ensure nvim is installed.
-  yum: name=neovim enablerepo=dperson-neovim,epel
+- include: rhel-{{ ansible_distribution_major_version }}.yml

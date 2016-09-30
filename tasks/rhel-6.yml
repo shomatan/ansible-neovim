@@ -1,0 +1,35 @@
+---
+- name: Ensure build packages are installed.
+  yum: name={{ item }}
+  with_items:
+    - libtool
+    - autoconf
+    - automake
+    - cmake
+    - gcc
+    - "gcc-c++"
+    - make
+    - pkgconfig
+    - unzip
+
+# - name: Check the neovim is installed.
+#   command: which nvim
+#   register: nvim_installed
+
+- name: Clone neovim sources.
+  git:
+    repo: https://github.com/neovim/neovim
+    dest: /usr/local/src/neovim
+    update: no
+
+- name: Make neovim.
+  command: make
+  args:
+    chdir: /usr/local/src/neovim
+    creates: /usr/local/bin/nvim
+
+- name: Install neovim.
+  command: make install
+  args:
+    chdir: /usr/local/src/neovim
+    creates: /usr/local/bin/nvim
