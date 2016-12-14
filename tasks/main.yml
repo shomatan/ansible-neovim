@@ -1,2 +1,7 @@
 ---
-- include: rhel-{{ ansible_distribution_major_version }}.yml
+# setup/install tasks
+- include: setup-rhel{{ ansible_distribution_major_version }}.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: setup-darwin.yml
+  when: ansible_os_family == 'Darwin'

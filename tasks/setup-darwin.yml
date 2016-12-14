@@ -1,0 +1,3 @@
+---
+- name: Ensure neovim is installed from homebrew.
+  homebrew: name=neovim state=latest
