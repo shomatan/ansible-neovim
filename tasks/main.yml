@@ -5,3 +5,6 @@
 
 - include: setup-darwin.yml
   when: ansible_os_family == 'Darwin'
+
+- include: setup-Ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
