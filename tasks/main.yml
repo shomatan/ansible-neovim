@@ -2,9 +2,12 @@
 # setup/install tasks
 - include: setup-rhel{{ ansible_distribution_major_version }}.yml
   when: ansible_os_family == 'RedHat'
+  static: no
 
 - include: setup-darwin.yml
   when: ansible_os_family == 'Darwin'
+  static: no
 
 - include: setup-Ubuntu.yml
   when: ansible_distribution == 'Ubuntu'
+  static: no
