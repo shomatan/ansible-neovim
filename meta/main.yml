@@ -17,4 +17,4 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - shomatan.epel
+  - shomatan.repo-epel
